@@ -1,3 +1,4 @@
+```js
 const dns = require('dns');
 
 dns.lookup('google.co.in', (err, address, family) => {
@@ -19,3 +20,4 @@ dns.resolve4('google.co.in', (err, addresses) => {
     });
   });
 });
+```
