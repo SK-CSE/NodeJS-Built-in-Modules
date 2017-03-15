@@ -17,5 +17,5 @@ console.log(os.type()); // The os.type() method returns a string identifying the
 console.log(os.uptime()); // The os.uptime() method returns the system uptime in number of seconds
 console.log(os.userInfo()); // The os.userInfo() method returns information about the currently effective user
 console.log(os.networkInterfaces()); // The os.networkInterfaces() method returns an object containing only network interfaces that have been assigned a network address
-console.log(os.cpus()); // The `os.cpus()` method returns an array of objects containing information about each CPU/core installed
+console.log(os.cpus()); // The os.cpus() method returns an array of objects containing information about each CPU/core installed
 ```
