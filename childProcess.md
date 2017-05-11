@@ -1,6 +1,44 @@
 ###The child_process module provides the ability to spawn child processes
 
-running ls -lh /usr
+using fork()
+```js
+//server.js
+const http = require('http');
+const cp = require('child_process');
+const server = http.createServer();
+
+server.on('request',(req,res)=>{
+	if(req.url ==='/compute'){
+		const compute = cp.fork('client.js');
+		compute.send('start');
+		compute.on('message',(sum)=>{
+			res.end(`sum is ${sum}`);
+		})
+	}else{
+		res.end(`ok`);
+	}
+})
+server.listen(3000,(err)=>{
+	console.log('server start on 3000');
+})
+
+//client.js
+const longComputation = () =>{
+	let sum =0;
+	for (let i=0 ;i < 1e9; i++){
+		sum =+i;
+	}
+	return sum;
+};
+
+process.on('message',(msg)=>{
+	const sum = longComputation();
+	process.send(sum);
+})
+```
+
+running ls -lh /usr on spawn()
+
 ```js
 const spawn = require('child_process').spawn;
 const ls = spawn('ls', ['-lh', '/usr']);
