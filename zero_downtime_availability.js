@@ -47,3 +47,5 @@ http.createServer((req,res)=>{
 	console.log(`started process ${pid}`);
 
 });
+
+// node cluster.js
