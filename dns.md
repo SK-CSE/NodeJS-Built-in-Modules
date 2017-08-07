@@ -1,5 +1,12 @@
 ```js
 const dns = require('dns');
+const os = require('os');
+
+
+dns.lookup(os.hostname(), function (err, add, ipType) {
+  console.log('address: ', add);
+  console.log('ipType: ', ipType); // 4
+});
 
 dns.lookup('google.co.in', (err, address, family) => {
   console.log('address: %j family: IPv%s', address, family); // address: "216.58.220.46" family: IPv4
