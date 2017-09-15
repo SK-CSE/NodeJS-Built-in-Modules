@@ -21,4 +21,10 @@ process.stdin.on('data',(data) =>{
 	}
 });
 
+process.on('exit',()=>{
+	process.stdout.write('\n\n\n');
+	process.stdout.write(`your name is ${answer[0]}, you are ${answer[2]} and you are from ${answer[1]}`);
+	process.stdout.write('\n\n\n');
+})
+
 ask(0);
